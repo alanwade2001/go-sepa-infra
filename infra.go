@@ -1,4 +1,4 @@
-package main
+package infra
 
 import (
 	db "github.com/alanwade2001/go-sepa-db"
