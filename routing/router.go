@@ -1,6 +1,7 @@
 package routing
 
 import (
+	utils "github.com/alanwade2001/go-sepa-utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +17,7 @@ func NewRouter() *Router {
 	return s
 }
 
-func (s *Router) Run(address string) {
+func (s *Router) Run() {
+	address := utils.Getenv("ADDRESS", ":8080")
 	s.Router.Run(address)
 }
