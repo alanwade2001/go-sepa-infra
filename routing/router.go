@@ -17,7 +17,15 @@ func NewRouter() *Router {
 	return s
 }
 
-func (s *Router) Run() {
+func (s *Router) Run() error {
 	address := utils.Getenv("ADDRESS", ":8080")
-	s.Router.Run(address)
+	return s.Router.Run(address)
+}
+
+func (s *Router) RunWithTLS() error {
+	address := utils.Getenv("ADDRESS", ":8080")
+	certFile := utils.Getenv("CERT", ":8080")
+	keyFile := utils.Getenv("KEY", ":8080")
+
+	return s.Router.RunTLS(address, certFile, keyFile)
 }

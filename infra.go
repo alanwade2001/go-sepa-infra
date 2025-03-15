@@ -23,6 +23,9 @@ func NewInfra() *Infra {
 }
 
 func (a *Infra) Run() {
-
 	a.Router.Run()
+}
+
+func (a *Infra) RunWithTLS() {
+	a.Router.RunWithTLS()
 }
