@@ -1,6 +1,8 @@
 package routing
 
 import (
+	"log"
+
 	utils "github.com/alanwade2001/go-sepa-utils"
 	"github.com/gin-gonic/gin"
 )
@@ -24,8 +26,12 @@ func (s *Router) Run() error {
 
 func (s *Router) RunWithTLS() error {
 	address := utils.Getenv("ADDRESS", ":8080")
-	certFile := utils.Getenv("CERT", ":8080")
-	keyFile := utils.Getenv("KEY", ":8080")
+	certFile := utils.Getenv("CERT", "server.crt")
+	keyFile := utils.Getenv("KEY", "server.key")
+
+	log.Printf("Address:[%s]", address)
+	log.Printf("cert:[%s]", certFile)
+	log.Printf("key:[%s]", keyFile)
 
 	return s.Router.RunTLS(address, certFile, keyFile)
 }
