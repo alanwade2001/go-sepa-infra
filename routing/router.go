@@ -25,7 +25,7 @@ func (s *Router) Run() error {
 }
 
 func (s *Router) RunWithTLS() error {
-	address := utils.Getenv("ADDRESS", ":8080")
+	address := utils.Getenv("ADDRESS", ":443")
 	certFile := utils.Getenv("CERT", "server.crt")
 	keyFile := utils.Getenv("KEY", "server.key")
 
